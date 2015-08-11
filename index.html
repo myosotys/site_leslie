@@ -62,6 +62,7 @@
     <link rel="stylesheet" type="text/css"  href="css/flexslider.min.css" media="screen" />
     <link rel="stylesheet" type="text/css"  href="css/supersized.css" media="screen" />
     <link rel="stylesheet" type="text/css"  href="css/supersized.shutter.min.css" media="screen" />
+    <link rel="stylesheet" type="text/css"  href="css/page_loader.css" media="screen" />
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -115,12 +116,15 @@
 
 <!--  site loading -->
 <div class="pageFade bg_white" > 	
-	<div class="loading_2x out"> 
-    	<div class="text"> <p>Loading...</p> </div>       
-         <div class="logo_loading">
-         	<div class="site_loading_bar"></div>         
-         </div>
-    </div>      
+</div>
+
+<!--  site loading -->
+
+
+<div id="loader" class="pageload-overlay" data-opening="M 40,-65 145,80 -65,80 40,-65" data-closing="m 40,-65 0,0 L -65,80 40,-65">
+	<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="none">
+		<path d="M 40,-65 145,80 40,-65"/>
+	</svg>
 </div>
 
 
@@ -546,8 +550,11 @@ If you need this button just remove the comment code
     <script type="text/javascript" src="js/custom.min.js"></script> 
     <script type="text/javascript" src="js/video.min.js"></script>
     <script type="text/javascript" src="js/bigvideo.js"></script>    
-    <script type="text/javascript" src="js/main-fm.min.js"></script>
+    <script type="text/javascript" src="js/main-fm.js"></script>
 	<script type="text/javascript" src="js/jquery.jstwitter.js"></script> 
+	
+	<script src="js/snap.svg-min.js"></script>
+	<script type="text/javascript" src="js/svgLoader.js"></script> 
     
     
 	<script type="text/javascript">
@@ -612,6 +619,15 @@ If you need this button just remove the comment code
 				
 			/* Site Main plug-in initilize */
 				jQuery(function($){
+					loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 500, easingIn : mina.easeinout } );
+
+					loader.show();
+					// after some time hide loader
+					setTimeout( function() {
+						loader.hide();
+
+
+					}, 2000 );
 					$("body").mainFm({
 						
 						/* Set the opening page. 

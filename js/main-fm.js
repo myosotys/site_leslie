@@ -865,7 +865,7 @@
 					setTimeout( function(){	
 						self.headerFad.find(".loading_2x").remove();
 					}, 1000);
-				}, 1500);				
+				}, 500);				
 			}
 			
 			$(".previousPage, .nextPage").on('click', function() {
