@@ -3,13 +3,7 @@ svg[Attributes Style] {
     height: 100%;
 }
 
-.container {
-	display: none;
-}
 
-.container.show {
-	display: block;
-}
 
 .pageload-overlay {
 	position: fixed;
